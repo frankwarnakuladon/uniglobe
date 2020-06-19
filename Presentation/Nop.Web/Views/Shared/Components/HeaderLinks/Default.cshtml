@@ -8,10 +8,10 @@
         {
             <li><a href="@Url.RouteUrl("Logout")" class="ico-logout">@T("Account.Logout")</a></li>
         }
-        else
         {
-
+            <li><a href="@Url.RouteUrl("ContactUs")">@T("ContactUs")</a></li>
         }
+
         @if (Model.AllowPrivateMessages)
         {
             <li>
