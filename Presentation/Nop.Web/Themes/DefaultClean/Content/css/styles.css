@@ -1,7 +1,8 @@
-
+﻿
 
 /*********** CSS RESET **********/
 
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i');
 
 * {
 	margin: 0;
@@ -67,7 +68,7 @@ body {
     max-width: 100%;
 	overflow-x: hidden;
 	background-color: #fff;
-	font: normal 14px Arial, Helvetica, sans-serif;
+	font: normal 14px Roboto, Arial, Helvetica, sans-serif;
     color: #777;
 }
 h1,h2,h3,h4,h5,h6 {
@@ -96,7 +97,7 @@ textarea, select {
 }
 input, textarea, select, button {
 	font-size: 14px;
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: Roboto, Arial, Helvetica, sans-serif;
 	color: #777;
 }
 textarea {
@@ -593,7 +594,7 @@ label, label + * {
 	/*override jQuery UI styles, do not delete doubled properties*/
 	border-radius: 0;
 	padding: 0;
-	font: normal 14px Arial, Helvetica, sans-serif;
+	font: normal 14px Roboto, Arial, Helvetica, sans-serif;
 }
 .ui-dialog:before {
 	content: "";
@@ -904,7 +905,7 @@ label, label + * {
 	/*override jQuery UI styles, do not delete doubled properties*/
 	border-radius: 0;
 	padding: 0;
-	font: normal 14px Arial, Helvetica, sans-serif;
+	font: normal 14px Roboto, Arial, Helvetica, sans-serif;
 }
 .ui-autocomplete li {
 	border-top: 1px solid #ddd;
@@ -2210,7 +2211,7 @@ label, label + * {
 	border: none;
 	border-radius: 0;
 	padding: 0;
-	font: normal 14px Arial, Helvetica, sans-serif;
+	font: normal 14px Roboto, Arial, Helvetica, sans-serif;
 	color: #777;
 }
 .ui-datepicker-header {
@@ -5226,13 +5227,13 @@ label, label + * {
 /* jQuery tabs */
 
 .ui-tabs {
-    /*override jQuery UI styles, do not delete doubled properties*/
-    border: none;
-    border-radius: 0;
-    background: none;
-    padding: 0;
-    font: normal 14px Arial, Helvetica, sans-serif;
-    color: #777;
+	/*override jQuery UI styles, do not delete doubled properties*/
+	border: none;
+	border-radius: 0;
+	background: none;
+	padding: 0;
+	font: normal 14px Roboto, Arial, Helvetica, sans-serif;
+	color: #777;
 }
 .ui-widget.ui-widget-content.ui-tabs {
     border: none;
@@ -5355,7 +5356,7 @@ label, label + * {
 	/*override jQuery UI styles, do not delete doubled properties*/
 	line-height: normal;
 	font-size: 14px;
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: Roboto, Arial, Helvetica, sans-serif;
 	color: #777;
 }
 .profile-info-box .user-details {
@@ -5377,7 +5378,7 @@ label, label + * {
 	/*override jQuery UI styles, do not delete doubled properties*/
 	line-height: normal;
 	font-size: 14px;
-	font-family: Arial, Helvetica, sans-serif;
+	font-family: Roboto, Arial, Helvetica, sans-serif;
 	color: #777;
 }
 .latest-posts .topic {
@@ -5414,11 +5415,11 @@ pre {
 }
 .csharpcode {
 	margin: 10px 0;
-    border: 1px dashed #ccc;
+	border: 1px dashed #ccc;
 	background-color: #fff;
-    padding: 10px; 
-	font-family: "Courier New", Courier, monospace;
-	color: #000;  
+	padding: 10px;
+	font-family: Roboto, "Courier New", Courier, monospace;
+	color: #000;
 }
 .csharpcode .rem {
     color: green;
