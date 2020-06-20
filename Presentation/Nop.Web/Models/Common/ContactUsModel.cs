@@ -20,6 +20,12 @@ namespace Nop.Web.Models.Common
         [NopResourceDisplayName("ContactUs.FullName")]
         public string FullName { get; set; }
 
+        [NopResourceDisplayName("ContactUs.Phone")]
+        public string Phone { get; set; }
+
+        [NopResourceDisplayName("ContactUs.Subscribe")]
+        public bool Subscribe { get; set; }
+
         public bool SuccessfullySent { get; set; }
         public string Result { get; set; }
 
