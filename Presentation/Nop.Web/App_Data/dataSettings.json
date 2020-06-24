@@ -1,5 +1,5 @@
 ﻿{
-  "DataConnectionString": "Data Source=localhost;Initial Catalog=uniglobe_430;Integrated Security=False;Persist Security Info=False;User ID=sa;Password=intel@123",
+  "DataConnectionString": "Server=tcp:uniglobe.database.windows.net,1433;Initial Catalog=uniglobe_430;Persist Security Info=False;User ID=uniglobe_admin;Password=intel@123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;",
   "DataProvider": "sqlserver",
   "RawDataSettings": {}
 }
