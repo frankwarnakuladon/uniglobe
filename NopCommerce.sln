@@ -63,6 +63,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nop.Plugin.Payments.PayPalS
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Nop.Plugin.Widgets.FacebookPixel", "Plugins\Nop.Plugin.Widgets.FacebookPixel\Nop.Plugin.Widgets.FacebookPixel.csproj", "{87013DC8-D032-465B-A950-753E4EB15502}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StoreData", "StoreData", "{8EFE0B1C-9B14-4FE6-9F93-3627B3FB27F8}"
+	ProjectSection(SolutionItems) = preProject
+		configuration.sql = configuration.sql
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
