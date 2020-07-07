@@ -992,7 +992,7 @@ label, label + * {
 }
 .follow-us .social ul {
 	margin: 0 0 30px;
-	border-bottom: 1px solid #ddd;
+/*	border-bottom: 1px solid #ddd;*/
 	padding: 0 0 30px;
 	font-size: 0;
 }
