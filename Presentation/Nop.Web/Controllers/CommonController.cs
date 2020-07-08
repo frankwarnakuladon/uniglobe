@@ -183,6 +183,30 @@ namespace Nop.Web.Controllers
             return View(model);
         }
 
+        //about us page
+        [HttpsRequirement]
+        //available even when a store is closed
+        [CheckAccessClosedStore(true)]
+        public virtual ViewResult AboutUs()
+        {
+            //var model = new ContactUsModel();
+            //model = _commonModelFactory.PrepareContactUsModel(model, false);
+            //return View(model);
+            return View("AboutUs");
+        }
+
+        //services page
+        [HttpsRequirement]
+        //available even when a store is closed
+        [CheckAccessClosedStore(true)]
+        public virtual ViewResult Services()
+        {
+            //var model = new ContactUsModel();
+            //model = _commonModelFactory.PrepareContactUsModel(model, false);
+            //return View(model);
+            return View("Services");
+        }
+
         [HttpPost, ActionName("ContactUs")]        
         [ValidateCaptcha]
         //available even when a store is closed
