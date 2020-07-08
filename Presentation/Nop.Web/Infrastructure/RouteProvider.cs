@@ -80,6 +80,14 @@ namespace Nop.Web.Infrastructure
             endpointRouteBuilder.MapControllerRoute("ContactUs", $"{pattern}contactus",
                 new { controller = "Common", action = "ContactUs" });
 
+            //about us
+            endpointRouteBuilder.MapControllerRoute("AboutUs", $"{pattern}aboutus",
+                new { controller = "Common", action = "AboutUs" });
+
+            //services
+            endpointRouteBuilder.MapControllerRoute("Services", $"{pattern}services",
+                new { controller = "Common", action = "Services" });
+
             //sitemap
             endpointRouteBuilder.MapControllerRoute("Sitemap", $"{pattern}sitemap",
                 new { controller = "Common", action = "Sitemap" });
