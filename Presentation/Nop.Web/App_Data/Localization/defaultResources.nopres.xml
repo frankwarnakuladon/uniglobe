@@ -15213,6 +15213,12 @@
   <LocaleResource Name="ContactUs">
     <Value>Contact us</Value>
   </LocaleResource>
+  <LocaleResource Name="AboutUs">
+    <Value>About us</Value>
+  </LocaleResource>
+  <LocaleResource Name="Services">
+    <Value>Services</Value>
+  </LocaleResource>
   <LocaleResource Name="ContactUs.Button">
     <Value>Submit</Value>
   </LocaleResource>
