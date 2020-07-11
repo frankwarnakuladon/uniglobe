@@ -8,8 +8,13 @@
         {
             <li><a href="@Url.RouteUrl("Logout")" class="ico-logout">@T("Account.Logout")</a></li>
         }
+
         {
-            <li><a href="@Url.RouteUrl("ContactUs")">@T("ContactUs")</a></li>
+            <li><a href="@Url.RouteUrl("Topic", new {SeName = Html.GetTopicSeName("aboutus") })">@T("AboutUs")</a></li>
+        }
+
+        {
+        <   li><a href="@Url.RouteUrl("ContactUs")">@T("ContactUs")</a></li>
         }
 
         @if (Model.AllowPrivateMessages)

@@ -16,6 +16,10 @@ namespace Nop.Web.Components
         public IViewComponentResult Invoke()
         {
             var model = _commonModelFactory.PrepareHeaderLinksModel();
+
+            // Disable 'Shopping Cart' from code (if not handled by configurations/permissions) - Uncomment to hide/disable shopping cart
+            //model.ShoppingCartEnabled = false; 
+
             return View(model);
         }
     }
