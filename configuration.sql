@@ -3,6 +3,9 @@
 -- Settings Table
 
 -- Removes "Powered by nopCommerce" link
+update [dbo].[Setting] set value = 'True' where Name = 'storeinformationsettings.hidepoweredbynopcommerce'
+
+-- Last news title ??
 update [dbo].[Setting] set value = '' where Name = 'adminareasettings.lastnewstitleadminarea'
 
 -- Store Facebook
