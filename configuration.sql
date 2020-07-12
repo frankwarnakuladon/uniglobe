@@ -76,7 +76,7 @@ update [dbo].[LocaleStringResource] set ResourceValue = 'Phone' where ResourceNa
 END
 ELSE
 BEGIN
-Insert into [dbo].[LocaleStringResource] (ResourceName, ResourceValue) values ('contactus.phone', 'Phone')
+Insert into [dbo].[LocaleStringResource] (ResourceName, ResourceValue, LanguageId) values ('contactus.phone', 'Phone', 1)
 END
 
 IF EXISTS (SELECT * FROM [dbo].[LocaleStringResource] WHERE ResourceName = 'ContactUs.Phone.hint')
