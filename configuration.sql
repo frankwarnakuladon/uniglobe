@@ -5,6 +5,9 @@
 -- Removes "Powered by nopCommerce" link
 update [dbo].[Setting] set value = '' where Name = 'adminareasettings.lastnewstitleadminarea'
 
+-- Removes "Powered by nopCommerce" link
+update [dbo].[Setting] set value = 'True' where Name = 'storeinformationsettings.hidepoweredbynopcommerce'
+
 -- Store Facebook
 update [dbo].[Setting] set value = 'https://www.facebook.com/UniglobeInt' where Name = 'storeinformationsettings.facebooklink'
 
@@ -13,6 +16,45 @@ update [dbo].[Setting] set value = 'https://twitter.com/UniglobeInt' where Name 
 
 -- Store Facebook
 update [dbo].[Setting] set value = 'https://www.youtube.com/UniglobeInt' where Name = 'storeinformationsettings.youtubelink'
+
+-- --Disable (or enable) Shopping Cart for all users (customer roles)
+
+-- --Show current permission role mappings for 'Show Shopping Cart' permission
+--SELECT TOP (100) pr.Name as Permission,  prm.[PermissionRecord_Id], prm.[CustomerRole_Id], cr.Name as customerRole
+--  FROM [dbo].[PermissionRecord] pr 
+--  INNER JOIN [dbo].[PermissionRecord_Role_Mapping] prm ON pr.Id = prm.PermissionRecord_Id
+--  INNER JOIN [dbo].CustomerRole cr ON cr.Id = prm.CustomerRole_Id
+--  where pr.Id = 47
+
+-- Disable 'Shopping Cart' for 'Administrators', 'Forum Moderators', 'Registered' and 'Guests' customer roles
+-- 'Administrators'
+IF EXISTS (SELECT * FROM [dbo].[PermissionRecord_Role_Mapping] WHERE [PermissionRecord_Id] = 47 AND [CustomerRole_Id] = 1)
+	DELETE FROM [dbo].[PermissionRecord_Role_Mapping] WHERE [PermissionRecord_Id] = 47 AND [CustomerRole_Id] = 1 -- Administrators
+-- 'Forum Moderators'
+IF EXISTS (SELECT * FROM [dbo].[PermissionRecord_Role_Mapping] WHERE [PermissionRecord_Id] = 47 AND [CustomerRole_Id] = 2)
+	DELETE FROM [dbo].[PermissionRecord_Role_Mapping] WHERE [PermissionRecord_Id] = 47 AND [CustomerRole_Id] = 2 -- Forum Moderators
+-- 'Registered'
+IF EXISTS (SELECT * FROM [dbo].[PermissionRecord_Role_Mapping] WHERE [PermissionRecord_Id] = 47 AND [CustomerRole_Id] = 3)
+	DELETE FROM [dbo].[PermissionRecord_Role_Mapping] WHERE [PermissionRecord_Id] = 47 AND [CustomerRole_Id] = 3 -- Registered
+-- 'Guests'
+IF EXISTS (SELECT * FROM [dbo].[PermissionRecord_Role_Mapping] WHERE [PermissionRecord_Id] = 47 AND [CustomerRole_Id] = 4)
+	DELETE FROM [dbo].[PermissionRecord_Role_Mapping] WHERE [PermissionRecord_Id] = 47 AND [CustomerRole_Id] = 4 -- Guests
+GO
+
+---- Enable 'Shopping Cart' for 'Administrators', 'Forum Moderators', 'Registered' and 'Guests' customer roles
+---- 'Administrators'
+--IF NOT EXISTS (SELECT * FROM [dbo].[PermissionRecord_Role_Mapping] WHERE [PermissionRecord_Id] = 47 AND [CustomerRole_Id] = 1)
+--	INSERT INTO [dbo].[PermissionRecord_Role_Mapping] ([PermissionRecord_Id],[CustomerRole_Id]) VALUES (47, 1)
+---- 'Forum Moderators'
+--IF NOT EXISTS (SELECT * FROM [dbo].[PermissionRecord_Role_Mapping] WHERE [PermissionRecord_Id] = 47 AND [CustomerRole_Id] = 2)
+--	INSERT INTO [dbo].[PermissionRecord_Role_Mapping] ([PermissionRecord_Id],[CustomerRole_Id]) VALUES (47, 2)
+---- 'Registered'
+--IF NOT EXISTS (SELECT * FROM [dbo].[PermissionRecord_Role_Mapping] WHERE [PermissionRecord_Id] = 47 AND [CustomerRole_Id] = 3)
+--	INSERT INTO [dbo].[PermissionRecord_Role_Mapping] ([PermissionRecord_Id],[CustomerRole_Id]) VALUES (47, 3)
+---- 'Guests'
+--IF NOT EXISTS (SELECT * FROM [dbo].[PermissionRecord_Role_Mapping] WHERE [PermissionRecord_Id] = 47 AND [CustomerRole_Id] = 4)
+--	INSERT INTO [dbo].[PermissionRecord_Role_Mapping] ([PermissionRecord_Id],[CustomerRole_Id]) VALUES (47, 4)
+--GO
 
 
 
