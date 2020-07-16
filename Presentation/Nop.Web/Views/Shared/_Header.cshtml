@@ -2,6 +2,9 @@
     @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HeaderBefore })
     <div class="header-upper">
         <div class="header-selectors-wrapper">
+            <div class="header-logo">
+                @await Component.InvokeAsync("Logo")
+            </div>
             @await Component.InvokeAsync("TaxTypeSelector")
             @await Component.InvokeAsync("CurrencySelector")
             @await Component.InvokeAsync("LanguageSelector")
@@ -14,9 +17,6 @@
     </div>
     @await Component.InvokeAsync("Widget", new { widgetZone = PublicWidgetZones.HeaderMiddle })
     <div class="header-lower">
-        <div class="header-logo">
-            @await Component.InvokeAsync("Logo")
-        </div>
         <div class="search-box store-search-box">
             @await Component.InvokeAsync("SearchBox")
         </div>
