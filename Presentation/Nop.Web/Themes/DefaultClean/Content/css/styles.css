@@ -6517,6 +6517,10 @@ pre {
 	margin: 0 10px 0 0;
 	text-align: right;
 }
+	.inputs label.left {
+		margin-left: 10px;
+		text-align: left;
+	}
 .inputs input[type="text"],
 .inputs input[type="email"],
 .inputs input[type="tel"],

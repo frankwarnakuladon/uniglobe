@@ -82,9 +82,10 @@
                             </div>
 
                             <div class="inputs">
-                                <label asp-for="Subscribe"></label>
-                                <input asp-for="Subscribe" class="subscribe"/>
-                             </div>
+                                <label></label>
+                                <input asp-for="Subscribe" class="subscribe" />
+                                <label asp-for="Subscribe" class="left"></label>
+                            </div>
                             @if (Model.DisplayCaptcha)
                             {
                                 <nop-captcha />
