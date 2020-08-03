@@ -861,7 +861,7 @@ label, label + * {
 	line-height: 0; /*firefox line-height bug fix*/
 }
 .header-logo a img {
-	max-width: 100%;
+	max-width: 180px;
 	opacity: 1;
 }
 
