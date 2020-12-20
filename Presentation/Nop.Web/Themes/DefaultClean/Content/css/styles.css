@@ -835,7 +835,7 @@ label, label + * {
 	width: 70%;
 	max-width: 400px;
 	margin: 10px auto 0;
-	background-color: #f6f6f6;
+	background-color: #000000;
 	padding: 0 20px;
 }
 #topcartlink a {
