@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using Nop.Core.Domain.Blogs;
 using Nop.Core.Domain.Catalog;
 using Nop.Core.Domain.Customers;
@@ -439,7 +439,7 @@ namespace Nop.Services.Messages
         /// <param name="subject">Email subject. Pass null if you want a message template subject to be used.</param>
         /// <param name="body">Email body</param>
         /// <returns>Queued email identifier</returns>
-        IList<int> SendContactUsMessage(int languageId, string senderEmail, string senderName, string subject, string body);
+        IList<int> SendContactUsMessage(int languageId, string senderEmail, string senderName, string subject, string body, string phone);
 
         /// <summary>
         /// Sends "contact vendor" message
@@ -480,12 +480,12 @@ namespace Nop.Services.Messages
         /// <param name="fromName">Sender name. If specified, then it overrides passed "emailAccount" details</param>
         /// <param name="subject">Subject. If specified, then it overrides subject of a message template</param>
         /// <returns>Queued email identifier</returns>
-        int SendNotification(MessageTemplate messageTemplate, 
-            EmailAccount emailAccount, int languageId, IEnumerable<Token> tokens, 
-            string toEmailAddress, string toName, 
-            string attachmentFilePath = null, string attachmentFileName = null, 
-            string replyToEmailAddress = null, string replyToName = null, 
-            string fromEmail = null, string fromName = null, string subject = null);
+        int SendNotification(MessageTemplate messageTemplate,
+            EmailAccount emailAccount, int languageId, IEnumerable<Token> tokens,
+            string toEmailAddress, string toName,
+            string attachmentFilePath = null, string attachmentFileName = null,
+            string replyToEmailAddress = null, string replyToName = null,
+            string fromEmail = null, string fromName = null, string subject = null, string replyToPhone = null);
 
         #endregion
     }
