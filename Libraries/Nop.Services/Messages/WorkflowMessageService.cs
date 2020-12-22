@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -2161,7 +2161,7 @@ namespace Nop.Services.Messages
         /// <param name="body">Email body</param>
         /// <returns>Queued email identifier</returns>
         public virtual IList<int> SendContactUsMessage(int languageId, string senderEmail,
-            string senderName, string subject, string body)
+            string senderName, string subject, string body, string phone)
         {
             var store = _storeContext.CurrentStore;
             languageId = EnsureLanguageIsActive(languageId, store.Id);
@@ -2175,6 +2175,7 @@ namespace Nop.Services.Messages
             {
                 new Token("ContactUs.SenderEmail", senderEmail),
                 new Token("ContactUs.SenderName", senderName),
+                new Token("ContactUs.SenderPhone", phone),
                 new Token("ContactUs.Body", body, true)
             };
 
@@ -2193,7 +2194,7 @@ namespace Nop.Services.Messages
                 {
                     fromEmail = emailAccount.Email;
                     fromName = emailAccount.DisplayName;
-                    body = $"<strong>From</strong>: {WebUtility.HtmlEncode(senderName)} - {WebUtility.HtmlEncode(senderEmail)}<br /><br />{body}";
+                    body = $"<strong>From</strong>: {WebUtility.HtmlEncode(senderName)} - {WebUtility.HtmlEncode(senderEmail)}<br /><br /> <strong>Phone</strong>: {WebUtility.HtmlEncode(phone)} {body}";
                 }
                 else
                 {
@@ -2212,7 +2213,8 @@ namespace Nop.Services.Messages
                     fromName: fromName,
                     subject: subject,
                     replyToEmailAddress: senderEmail,
-                    replyToName: senderName);
+                    replyToName: senderName,
+                    replyToPhone: phone);
             }).ToList();
         }
 
@@ -2330,7 +2332,7 @@ namespace Nop.Services.Messages
             string toEmailAddress, string toName,
             string attachmentFilePath = null, string attachmentFileName = null,
             string replyToEmailAddress = null, string replyToName = null,
-            string fromEmail = null, string fromName = null, string subject = null)
+            string fromEmail = null, string fromName = null, string subject = null, string replyToPhone = null)
         {
             if (messageTemplate == null)
                 throw new ArgumentNullException(nameof(messageTemplate));
@@ -2348,8 +2350,14 @@ namespace Nop.Services.Messages
             var subjectReplaced = _tokenizer.Replace(subject, tokens, false);
             var bodyReplaced = _tokenizer.Replace(body, tokens, true);
 
-            //limit name length
-            toName = CommonHelper.EnsureMaximumLength(toName, 300);
+            if (replyToPhone != null && replyToPhone.Length > 0)
+            {
+                var phoneNumber = string.Format("\r\n</p>\r\n <p>Phone number : {0} </p>\r\n", replyToPhone.ToString());
+                bodyReplaced = bodyReplaced.Replace("\r\n</p>\r\n", phoneNumber);
+            }
+
+                //limit name length
+                toName = CommonHelper.EnsureMaximumLength(toName, 300);
 
             var email = new QueuedEmail
             {
